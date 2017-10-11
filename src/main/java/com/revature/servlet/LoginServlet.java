@@ -33,15 +33,7 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("LoginServlet -GET");
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.getRequestDispatcher("login.html").forward(request, response);
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		//System.out.println(username + " " + password);
-		int rtid = service.getRtidByUsernamePassword(username, password);
-		System.out.println("role type: " + rtid);
-		if(rtid == 1)
-			request.getRequestDispatcher("manager_home.jsp").forward(request, response);
-		if(rtid == 2)
-			request.getRequestDispatcher("employee_home.jsp").forward(request, response);
+
 	}
 
 	/**
@@ -51,6 +43,15 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("LoginServlet -POST");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		// System.out.println(username + " " + password);
+		int rtid = service.getRtidByUsernamePassword(username, password);
+		System.out.println("role type: " + rtid);
+		if (rtid == 1)
+			request.getRequestDispatcher("manager_home.jsp").forward(request, response);
+		if (rtid == 2)
+			request.getRequestDispatcher("employee_home.jsp").forward(request, response);
 	}
 
 }
