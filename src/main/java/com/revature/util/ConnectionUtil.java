@@ -10,7 +10,6 @@ public class ConnectionUtil {
 		 String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		 String username = "reimbursement_db";
 		 String password = "p4ssw0rd";
-		
 		return DriverManager.getConnection(url,username, password);
 	}
 }
