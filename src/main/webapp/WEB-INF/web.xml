@@ -41,4 +41,14 @@
     <servlet-name>AjaxEmployeeProfileViewServlet</servlet-name>
     <url-pattern>/AjaxEmployeeProfileViewServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxErsUserInfoServlet</display-name>
+    <servlet-name>AjaxErsUserInfoServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxErsUserInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxErsUserInfoServlet</servlet-name>
+    <url-pattern>/AjaxErsUserInfoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

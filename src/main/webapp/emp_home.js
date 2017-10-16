@@ -61,11 +61,33 @@ function loadProfileView(){
 		console.log('received Profile fragment');
 		if(xhr.readyState == 4 && xhr.status == 200){
 			document.getElementById("view").innerHTML = xhr.responseText;
-			//getBankUserInfo();
+			getUserInfo();
 		}
 	}
 	// open the request  ?? where does get go
 	xhr.open("GET", "ajaxProfileView", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+	
+}
+
+
+var ersUser = null;
+function getUserInfo(){
+	//Use AJAX to grab the JSON object from server that holds bank user data
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			//bankUser = xhr.responseText;
+			ersUser = JSON.parse(xhr.responseText); //BankUserDTO parsed into JS
+			document.getElementById("empFirstName").innerHTML = ersUser.firstName;   //profile.html
+			document.getElementById("empUserName").innerHTML = ersUser.username;
+			document.getElementById("empPassword").innerHTML = ersUser.password;
+			document.getElementById("empEmail").innerHTML = ersUser.email;
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxGetErsUserInfo", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	
