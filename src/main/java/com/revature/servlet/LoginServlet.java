@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.revature.domain.User;
 import com.revature.service.Service;
 
 /**
@@ -38,13 +39,15 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		// System.out.println(username + " " + password);
-		int rtid = service.getRtidByUsernamePassword(username, password);
-		System.out.println("role type: " + rtid);
-		if (rtid == 1)
-			request.getRequestDispatcher("manager/mng_home.html").forward(request, response);
-		else if (rtid == 2)
+		//int rtid = service.getRtidByUsernamePassword(username, password);
+		//System.out.println("test getUserByUsernamePassword");
+		User user = service.getUserByUsernamePassword(username, password);
+		//System.out.println(service.getUserByUsernamePassword(username, password));
+		//System.out.println("role type: " + rtid);
+		if (user.getRtId() == 1) // If user is a manager
+			request.getRequestDispatcher("manager/mng_home.html").forward(request, response);  // path will be changed later
+		else if (user.getRtId() == 2) //If user is an employee
 			request.getRequestDispatcher("emp_home.html").forward(request, response);
-			//request.getRequestDispatcher("testhome.html").forward(request, response);
 		else
 			response.sendRedirect("login.html");
 	}

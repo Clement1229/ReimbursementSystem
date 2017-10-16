@@ -9,6 +9,26 @@ public class User {
 	String email;
 	int rtId;
 
+	
+	
+	public User() {
+		super();
+	}
+
+
+	public User(int ersId, String firstName, String lastName, String username, String password, String email,
+			int rtId) {
+		super();
+		this.ersId = ersId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.rtId = rtId;
+	}
+
+
 	public int getErsId() {
 		return ersId;
 	}
