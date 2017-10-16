@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.domain.User;
 import com.revature.service.Service;
@@ -42,6 +43,8 @@ public class LoginServlet extends HttpServlet {
 		//int rtid = service.getRtidByUsernamePassword(username, password);
 		//System.out.println("test getUserByUsernamePassword");
 		User user = service.getUserByUsernamePassword(username, password);
+		HttpSession session = request.getSession();
+		session.setAttribute("user", user);
 		//System.out.println(service.getUserByUsernamePassword(username, password));
 		//System.out.println("role type: " + rtid);
 		if (user.getRtId() == 1) // If user is a manager
