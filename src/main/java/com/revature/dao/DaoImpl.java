@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.revature.domain.ReimbursementType;
 import com.revature.domain.User;
 import com.revature.util.ConnectionUtil;
 
@@ -37,4 +38,21 @@ public class DaoImpl implements Dao {
 		return rtid;
 	}
 
+	@Override
+	public void submitReimbursement(ReimbursementType type, double amount) {
+
+		try (Connection conn = ConnectionUtil.getConnection();) {
+			
+			//String sql = "SELECT ERS_RT_ID FROM ERS_USER WHERE ERS_USERNAME = ? AND ERS_PASSWORD = ?";
+			String sql = "INSERT RBT_ID, R_AMOUNT INTO REIMBURESEMENT WHERE ERS_ID = ? ";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, 5); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			ps.setDouble(2, amount);
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
+

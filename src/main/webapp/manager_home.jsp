@@ -8,5 +8,9 @@
 </head>
 <body>
 <h1> This is the Manager home page </h1>
+
+<br><br><br><br><br>
+<form action="Logout" method="post">
+<input type="submit" value="Logout" >
 </body>
 </html>

@@ -8,5 +8,14 @@
 </head>
 <body>
 <h1> This is the Employee home page </h1>
+<a href="viewReimbursement.jsp">View History of Reimbursement</a>
+<a href="profile.jsp">View Information</a>
+<br><br>
+<input type="submit" value="Submit Reimbursement" >
+<br><br>
+<input type="submit" value="Upload image" >
+<br><br><br><br><br>
+<form action="Logout" method="post">
+<input type="submit" value="Logout" >
 </body>
 </html>
