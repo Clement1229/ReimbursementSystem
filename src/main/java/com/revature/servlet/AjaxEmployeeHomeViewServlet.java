@@ -8,24 +8,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AjaxNavbarServlet
+ * Servlet implementation class AjaxEmployeeHomeViewServlet
  */
-@WebServlet("/ajaxNavbar")
-public class AjaxNavbarServlet extends HttpServlet {
+@WebServlet("/ajaxEmployeeHomeView")
+public class AjaxEmployeeHomeViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AjaxNavbarServlet() {
+    public AjaxEmployeeHomeViewServlet() {
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("AjaxNavbarServlet -GET");
+		System.out.println("AjaxEmployeeHomeViewServlet -GET");
 		request.getRequestDispatcher("navbar/navbar.html").forward(request, response);
 	}
+
 
 }

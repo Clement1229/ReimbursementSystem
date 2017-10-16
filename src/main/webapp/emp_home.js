@@ -45,7 +45,7 @@ function loadEmployeeHomeView(){
 		}
 	}
 	// open the request  ?? where does get go
-	xhr.open("GET", "EmployeeHomeView", true); //method, URL, true =>synchronous
+	xhr.open("GET", "ajaxEmployeeHomeView", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	

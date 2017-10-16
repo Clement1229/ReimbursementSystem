@@ -43,7 +43,8 @@ public class LoginServlet extends HttpServlet {
 		if (rtid == 1)
 			request.getRequestDispatcher("manager/mng_home.html").forward(request, response);
 		else if (rtid == 2)
-			request.getRequestDispatcher("employee/emp_home.html").forward(request, response);
+			request.getRequestDispatcher("emp_home.html").forward(request, response);
+			//request.getRequestDispatcher("testhome.html").forward(request, response);
 		else
 			response.sendRedirect("login.html");
 	}

@@ -21,4 +21,14 @@
     <servlet-name>AjaxNavbarServlet</servlet-name>
     <url-pattern>/AjaxNavbarServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxEmployeeHomeViewServlet</display-name>
+    <servlet-name>AjaxEmployeeHomeViewServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxEmployeeHomeViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxEmployeeHomeViewServlet</servlet-name>
+    <url-pattern>/AjaxEmployeeHomeViewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
