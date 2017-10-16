@@ -20,14 +20,8 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public LoginServlet() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("LoginServlet -GET");
@@ -36,10 +30,6 @@ public class LoginServlet extends HttpServlet {
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("LoginServlet -POST");
@@ -49,9 +39,11 @@ public class LoginServlet extends HttpServlet {
 		int rtid = service.getRtidByUsernamePassword(username, password);
 		System.out.println("role type: " + rtid);
 		if (rtid == 1)
-			request.getRequestDispatcher("manager_home.jsp").forward(request, response);
-		if (rtid == 2)
-			request.getRequestDispatcher("employee_home.jsp").forward(request, response);
+			request.getRequestDispatcher("manager/mng_home.html").forward(request, response);
+		else if (rtid == 2)
+			request.getRequestDispatcher("employee/emp_home.html").forward(request, response);
+		else
+			response.sendRedirect("login.html");
 	}
 
 }
