@@ -31,4 +31,14 @@
     <servlet-name>AjaxEmployeeHomeViewServlet</servlet-name>
     <url-pattern>/AjaxEmployeeHomeViewServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxEmployeeProfileViewServlet</display-name>
+    <servlet-name>AjaxEmployeeProfileViewServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxEmployeeProfileViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxEmployeeProfileViewServlet</servlet-name>
+    <url-pattern>/AjaxEmployeeProfileViewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

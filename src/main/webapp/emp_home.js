@@ -22,6 +22,7 @@ function loadNavbar(){
 			 */
 			//document.getElementById('revatureHome').addEventListener("click", loadRevatureHomeView, false);
 			//document.getElementById('tx').addEventListener("click",loadTxView, false);
+			document.getElementById('profile').addEventListener("click",loadProfileView, false);
 		}
 	}
 	// open the request  ?? where does get go
@@ -41,11 +42,30 @@ function loadEmployeeHomeView(){
 		console.log('received Employee_Home fragment');
 		if(xhr.readyState == 4 && xhr.status == 200){
 			document.getElementById("view").innerHTML = xhr.responseText;
-			getBankUserInfo();
+			//getBankUserInfo();
 		}
 	}
 	// open the request  ?? where does get go
 	xhr.open("GET", "ajaxEmployeeHomeView", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+	
+}
+
+function loadProfileView(){
+	console.log('Loading ProfileView!!');
+ 	
+	//Use AJAX to grab the navbar.html fragment
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		console.log('received Profile fragment');
+		if(xhr.readyState == 4 && xhr.status == 200){
+			document.getElementById("view").innerHTML = xhr.responseText;
+			//getBankUserInfo();
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxProfileView", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	
