@@ -51,4 +51,14 @@
     <servlet-name>AjaxErsUserInfoServlet</servlet-name>
     <url-pattern>/AjaxErsUserInfoServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxReimbursementViewServlet</display-name>
+    <servlet-name>AjaxReimbursementViewServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxReimbursementViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxReimbursementViewServlet</servlet-name>
+    <url-pattern>/AjaxReimbursementViewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

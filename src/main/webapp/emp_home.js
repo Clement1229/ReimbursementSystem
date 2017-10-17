@@ -22,6 +22,7 @@ function loadNavbar(){
 			 */
 			//document.getElementById('revatureHome').addEventListener("click", loadRevatureHomeView, false);
 			//document.getElementById('tx').addEventListener("click",loadTxView, false);
+			document.getElementById('reimbursement').addEventListener("click",loadReimbursementView, false);
 			document.getElementById('profile').addEventListener("click",loadProfileView, false);
 		}
 	}
@@ -51,7 +52,7 @@ function loadEmployeeHomeView(){
 	xhr.send();
 	
 }
-
+//*************************************** Profile
 function loadProfileView(){
 	console.log('Loading ProfileView!!');
  	
@@ -88,6 +89,26 @@ function getUserInfo(){
 	}
 	// open the request  ?? where does get go
 	xhr.open("GET", "ajaxGetErsUserInfo", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+	
+}
+//******************************************************
+//******************************************* Reimbursement 
+function loadReimbursementView(){
+	console.log('Loading ReimbursementView!!');
+ 	
+	//Use AJAX to grab the navbar.html fragment
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		console.log('received Reimbursement fragment');
+		if(xhr.readyState == 4 && xhr.status == 200){
+			document.getElementById("view").innerHTML = xhr.responseText;
+			//getUserInfo();
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxReimbursementView", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	

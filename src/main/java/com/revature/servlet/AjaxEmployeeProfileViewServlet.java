@@ -26,12 +26,12 @@ public class AjaxEmployeeProfileViewServlet extends HttpServlet {
 		System.out.println("Loading ProfileView");
 		request.getRequestDispatcher("employee/profile.html").forward(request, response);
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+/*	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("AjaxEmployeeProfileViewServlet  -POST");
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 	
-	}
+	}*/
 
 	
 
