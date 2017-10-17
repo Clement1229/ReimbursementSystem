@@ -23,6 +23,7 @@ function loadNavbar(){
 			//document.getElementById('revatureHome').addEventListener("click", loadRevatureHomeView, false);
 			//document.getElementById('tx').addEventListener("click",loadTxView, false);
 			document.getElementById('reimbursement').addEventListener("click",loadReimbursementView, false);
+			document.getElementById('pending').addEventListener("click",loadHistoryOfPendingView, false);
 			document.getElementById('profile').addEventListener("click",loadProfileView, false);
 		}
 	}
@@ -113,3 +114,44 @@ function loadReimbursementView(){
 	xhr.send();
 	
 }
+//************************************************************************************
+//******************************************* History of pending
+function loadHistoryOfPendingView(){
+	console.log('Loading loadHistoryOfPendingView!!');
+ 	
+	//Use AJAX to grab the navbar.html fragment
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		console.log('received pending fragment');
+		if(xhr.readyState == 4 && xhr.status == 200){
+			document.getElementById("view").innerHTML = xhr.responseText;
+			//getHistoryOfPending();
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxHistoryOfPendingtView", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+	
+}
+
+/*
+function getHistoryOfPending(){
+	//Use AJAX to grab the JSON object from server that holds bank user data
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4 && xhr.status == 200){
+			//bankUser = xhr.responseText;
+			ersUser = JSON.parse(xhr.responseText); //BankUserDTO parsed into JS
+			document.getElementById("empFirstName").innerHTML = ersUser.firstName;   //profile.html
+			document.getElementById("empUserName").innerHTML = ersUser.username;
+			document.getElementById("empPassword").innerHTML = ersUser.password;
+			document.getElementById("empEmail").innerHTML = ersUser.email;
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxGetErsUserInfo", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+	
+}*/

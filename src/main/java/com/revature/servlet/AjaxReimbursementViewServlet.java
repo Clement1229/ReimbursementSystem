@@ -51,9 +51,5 @@ public class AjaxReimbursementViewServlet extends HttpServlet {
 		//request.getRequestDispatcher("employee/history-reimbursement.html").forward(request, response);
 		request.getRequestDispatcher("emp_home.html").forward(request, response);
 	}
-/*	public static void main(String[] args) {
-		Reimbursement reim = new Reimbursement( 1, 1, 500, "hi" , 1);
-		System.out.println(reim);
-	}*/
 
 }

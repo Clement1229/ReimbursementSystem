@@ -60,6 +60,16 @@
   <servlet-mapping>
     <servlet-name>AjaxReimbursementViewServlet</servlet-name>
     <url-pattern>/AjaxReimbursementViewServlet</url-pattern>
-     <url-pattern>/submit</url-pattern>
+    <url-pattern>/submit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxHistoryOfPendingServlet</display-name>
+    <servlet-name>AjaxHistoryOfPendingServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxHistoryOfPendingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxHistoryOfPendingServlet</servlet-name>
+    <url-pattern>/AjaxHistoryOfPendingServlet</url-pattern>
   </servlet-mapping>
 </web-app>
