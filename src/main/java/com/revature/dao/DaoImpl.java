@@ -1,10 +1,12 @@
 package com.revature.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.revature.domain.Reimbursement;
 import com.revature.domain.ReimbursementType;
 import com.revature.domain.User;
 import com.revature.util.ConnectionUtil;
@@ -38,22 +40,8 @@ public class DaoImpl implements Dao {
 		return rtid;
 	}
 
-	@Override
-	public void submitReimbursement(ReimbursementType type, double amount) {
-
-		try (Connection conn = ConnectionUtil.getConnection();) {
-
-			// String sql = "SELECT ERS_RT_ID FROM ERS_USER WHERE ERS_USERNAME = ? AND
-			// ERS_PASSWORD = ?";
-			String sql = "INSERT RBT_ID, R_AMOUNT INTO REIMBURESEMENT WHERE ERS_ID = ? ";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, 5); // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			ps.setDouble(2, amount);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+	
+	
 
 	@Override
 	public User getUserByUsernamePassword(String username, String password) {
@@ -76,6 +64,21 @@ public class DaoImpl implements Dao {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	//new
+	public void submitReimbursement(User user,Reimbursement reim) {
+		try (Connection conn = ConnectionUtil.getConnection();) {
+
+			CallableStatement cs = conn.prepareCall("{call submit_reimbursement(?,?,?,?)}");
+			cs.setInt(1, user.getErsId());
+			cs.setDouble(2, reim.getAmount());
+			cs.setString(3, reim.getDescription());
+			cs.setInt(4, reim.getRbt_id());
+			cs.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
