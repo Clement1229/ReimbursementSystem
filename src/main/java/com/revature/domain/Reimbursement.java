@@ -21,6 +21,20 @@ public class Reimbursement {
 	String timestamp;
 	String description;
 	int rbt_id;
+	
+	public Reimbursement() {
+		super();
+	}
+	
+	public Reimbursement(int ersID, int stID, double amount, String description, int rbt_id) {
+		super();
+		this.ersID = ersID;
+		this.stID = stID;
+		this.amount = amount;
+		this.description = description;
+		this.rbt_id = rbt_id;
+	}
+
 	public int getrId() {
 		return rId;
 	}

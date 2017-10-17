@@ -60,5 +60,6 @@
   <servlet-mapping>
     <servlet-name>AjaxReimbursementViewServlet</servlet-name>
     <url-pattern>/AjaxReimbursementViewServlet</url-pattern>
+     <url-pattern>/submit</url-pattern>
   </servlet-mapping>
 </web-app>

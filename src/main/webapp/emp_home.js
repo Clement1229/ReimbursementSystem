@@ -93,7 +93,7 @@ function getUserInfo(){
 	xhr.send();
 	
 }
-//******************************************************
+//*************************************************************************************
 //******************************************* Reimbursement 
 function loadReimbursementView(){
 	console.log('Loading ReimbursementView!!');

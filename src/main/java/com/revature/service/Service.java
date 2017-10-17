@@ -2,6 +2,7 @@ package com.revature.service;
 
 import com.revature.dao.Dao;
 import com.revature.dao.DaoImpl;
+import com.revature.domain.Reimbursement;
 import com.revature.domain.User;
 
 public class Service {
@@ -15,7 +16,9 @@ public class Service {
 	public User getUserByUsernamePassword(String username, String password) {
 		return dao.getUserByUsernamePassword(username, password);
 	}
-	
+	public void submitReimbursement(User user, Reimbursement reim) {
+		 dao.submitReimbursement(user, reim);
+	}
 	
 //	public String getSmile() {
 //		return "I'm smiling";

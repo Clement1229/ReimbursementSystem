@@ -1,9 +1,13 @@
+<!DOCTYPE html>
+<html>
 <head>
+<meta charset="ISO-8859-1">
 <link rel="stylesheet" href="css/submit-reimbursement.css"/>
 </head>
+<body>
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action="submit" method="POST">
     <div class="row">
       <div class="col-25">
         <label for="fname">First Name</label>
@@ -17,12 +21,12 @@
         <label for="amount">Amount</label>
       </div>
       <div class="col-75">
-        <input type="text" id="amount" name="amount" placeholder="reimbursement amount..">
+        <input type="number" id="amount" name="amount" placeholder="reimbursement amount..">
       </div>
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="country">Country</label>
+        <label for="reimbursementType">Reimbursement Type</label>
       </div>
       <div class="col-75">
         <select id="reimbursementType" name="reimbursementType">
@@ -34,7 +38,7 @@
     </div>
     <div class="row">
       <div class="col-25">
-        <label for="subject">Subject</label>
+        <label for="description">Description</label>
       </div>
       <div class="col-75">
         <textarea id="description" name="description" placeholder="Write something.." style="height:200px"></textarea>
@@ -55,3 +59,5 @@
   </div>
 </div>
 
+</body>
+</html>
