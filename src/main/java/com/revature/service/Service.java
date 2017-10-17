@@ -19,8 +19,12 @@ public class Service {
 	public void submitReimbursement(User user, Reimbursement reim) {
 		 dao.submitReimbursement(user, reim);
 	}
-	
-//	public String getSmile() {
-//		return "I'm smiling";
-//	}
+	public int getRbtId(String type) {
+		switch(type) {
+			case "travel": return 1;
+			case "business": return 2;
+			case "incidential": return 3;
+		}
+		return 0;
+	}
 }

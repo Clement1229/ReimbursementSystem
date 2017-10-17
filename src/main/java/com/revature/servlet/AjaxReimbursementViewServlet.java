@@ -40,14 +40,14 @@ public class AjaxReimbursementViewServlet extends HttpServlet {
 		String dcpt = request.getParameter("description");
 		String type = request.getParameter("reimbursementType");
 		HttpSession session = request.getSession();
-		//User employee = (User)session.getAttribute("user");
-		System.out.println(type);
-		//Reimbursement reim = new Reimbursement(employee.getErsId(), 1, Double.parseDouble(amount), dcpt, Integer.parseInt(type));
-		//System.out.println(reim);
-		/*session.setAttribute("reimbursement", reim);
-		
 		Service service = new Service();
-		service.submitReimbursement(employee, reim);*/
+		int rbtId = service.getRbtId(type);
+		User employee = (User)session.getAttribute("user");
+		//System.out.println(type);
+		Reimbursement reim = new Reimbursement(employee.getErsId(), 1, Double.parseDouble(amount), dcpt, rbtId);
+		//System.out.println(reim);
+		session.setAttribute("reimbursement", reim);
+		service.submitReimbursement(employee, reim);
 		request.getRequestDispatcher("employee/history-reimbursement.html").forward(request, response);
 	}
 /*	public static void main(String[] args) {
