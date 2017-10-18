@@ -26,6 +26,7 @@ function loadNavbar(){
 			document.getElementById('pending').addEventListener("click",loadHistoryOfPendingView, false);
 			document.getElementById('profile').addEventListener("click",loadProfileView, false);
 			document.getElementById('resolved').addEventListener("click",loadHistoryOfResolvedView, false);
+			//document.getElementById('logout').addEventListener("click",doLogOut, false);
 		}
 	}
 	// open the request  ?? where does get go
@@ -155,3 +156,18 @@ function loadHistoryOfResolvedView(){
 	xhr.send();
 	
 }
+
+/*function doLogOut(){
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		console.log('logout fragment');
+		if(xhr.readyState == 4 && xhr.status == 200){
+			document.getElementById("logout").innerHTML = xhr.responseText;
+			//getHistoryOfPending();
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "logout", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+}*/
