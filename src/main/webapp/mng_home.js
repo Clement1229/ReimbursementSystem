@@ -22,7 +22,7 @@ function loadNavbar(){
 			 */
 			//document.getElementById('revatureHome').addEventListener("click", loadRevatureHomeView, false);
 			//document.getElementById('tx').addEventListener("click",loadTxView, false);
-//			document.getElementById('reimbursement').addEventListener("click",loadReimbursementView, false);
+			document.getElementById('viewEmployee').addEventListener("click",loadEmployeeListView, false);
 //			document.getElementById('pending').addEventListener("click",loadHistoryOfPendingView, false);
 //			document.getElementById('profile').addEventListener("click",loadProfileView, false);
 //			document.getElementById('resolved').addEventListener("click",loadHistoryOfResolvedView, false);
@@ -34,5 +34,25 @@ function loadNavbar(){
 	//sent it
 	xhr.send();
 	
+}
+
+//************************************* View Employee
+
+function loadEmployeeListView(){
+	console.log('Loading loadEmployeeListView!!');
+ 	
+	//Use AJAX to grab the navbar.html fragment
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		console.log('received loadEmployeeListView fragment');
+		if(xhr.readyState == 4 && xhr.status == 200){
+			document.getElementById("view").innerHTML = xhr.responseText;
+			getUserInfo();
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxEmployeeListView", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
 	
 }

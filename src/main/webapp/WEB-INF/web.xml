@@ -103,4 +103,14 @@
     <servlet-name>AjaxNavbarManagerServlet</servlet-name>
     <url-pattern>/AjaxNavbarManagerServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxManagerViewEmployeeServlet</display-name>
+    <servlet-name>AjaxManagerViewEmployeeServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxManagerViewEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxManagerViewEmployeeServlet</servlet-name>
+    <url-pattern>/AjaxManagerViewEmployeeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
