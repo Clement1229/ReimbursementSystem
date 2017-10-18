@@ -1,7 +1,10 @@
 package com.revature.service;
 
+import java.util.List;
+
 import com.revature.dao.Dao;
 import com.revature.dao.DaoImpl;
+import com.revature.domain.PendingHistory;
 import com.revature.domain.Reimbursement;
 import com.revature.domain.User;
 
@@ -27,4 +30,8 @@ public class Service {
 		}
 		return 0;
 	}
+	public List<PendingHistory> viewPendingHistory(int ersid){
+		return dao.viewPendingHistory(ersid);
+	}
+	
 }

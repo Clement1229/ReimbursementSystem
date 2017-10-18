@@ -36,6 +36,10 @@ public class PendingHistory {
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
+	@Override
+	public String toString() {
+		return "Type: " + type + "\n amount: " + amount + "\n status: " + status + "\n timestamp: " + timestamp;
+	}
     
     
     

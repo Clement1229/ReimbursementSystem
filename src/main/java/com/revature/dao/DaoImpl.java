@@ -83,7 +83,7 @@ public class DaoImpl implements Dao {
 		}
 	}
 	
-public List<PendingHistory> viewTransactionHistory(Reimbursement reim) {
+public List<PendingHistory> viewPendingHistory(int ersid) {
 		
 		List<PendingHistory> reims = new ArrayList<>();
 		
@@ -92,7 +92,7 @@ public List<PendingHistory> viewTransactionHistory(Reimbursement reim) {
 			String sql = "select (select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp from REIMBURSEMENT where ERS_ID = ?";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, reim.getErsID());
+			ps.setInt(1, ersid);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				reims.add(new PendingHistory(rs.getString(1), rs.getDouble(2), rs.getString(3),rs.getString(4)));
@@ -104,5 +104,4 @@ public List<PendingHistory> viewTransactionHistory(Reimbursement reim) {
 		return reims;
 		
 	}
-
 }

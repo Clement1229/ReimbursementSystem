@@ -71,5 +71,6 @@
   <servlet-mapping>
     <servlet-name>AjaxHistoryOfPendingServlet</servlet-name>
     <url-pattern>/AjaxHistoryOfPendingServlet</url-pattern>
+    <url-pattern>/print</url-pattern>
   </servlet-mapping>
 </web-app>
