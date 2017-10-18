@@ -25,6 +25,7 @@ function loadNavbar(){
 			document.getElementById('reimbursement').addEventListener("click",loadReimbursementView, false);
 			document.getElementById('pending').addEventListener("click",loadHistoryOfPendingView, false);
 			document.getElementById('profile').addEventListener("click",loadProfileView, false);
+			document.getElementById('resolved').addEventListener("click",loadHistoryOfResolvedView, false);
 		}
 	}
 	// open the request  ?? where does get go
@@ -129,28 +130,27 @@ function loadHistoryOfPendingView(){
 		}
 	}
 	// open the request  ?? where does get go
-	xhr.open("GET", "ajaxHistoryOfPendingtView", true); //method, URL, true =>synchronous
+	xhr.open("GET", "ajaxHistoryOfPendingView", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	
 }
-
-//have not implemented yet  !!!!!!!!!!!!!!!!!!!!!!!!!
-function getHistoryOfPending(){
-	//Use AJAX to grab the JSON object from server that holds bank user data
+//************************************************************************************
+//******************************************* History of resolved
+function loadHistoryOfResolvedView(){
+	console.log('Loading loadHistoryOfResolvedView!!');
+ 	
+	//Use AJAX to grab the navbar.html fragment
 	var xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
+		console.log('received resolved fragment');
 		if(xhr.readyState == 4 && xhr.status == 200){
-			//bankUser = xhr.responseText;
-			ersUser = JSON.parse(xhr.responseText); //BankUserDTO parsed into JS
-			document.getElementById("empFirstName").innerHTML = ersUser.firstName;   //profile.html
-			document.getElementById("empUserName").innerHTML = ersUser.username;
-			document.getElementById("empPassword").innerHTML = ersUser.password;
-			document.getElementById("empEmail").innerHTML = ersUser.email;
+			document.getElementById("view").innerHTML = xhr.responseText;
+			//getHistoryOfPending();
 		}
 	}
 	// open the request  ?? where does get go
-	//xhr.open("GET", "ajaxGetErsUserInfo", true); //method, URL, true =>synchronous
+	xhr.open("GET", "ajaxHistoryOfResolvedView", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	

@@ -73,4 +73,14 @@
     <url-pattern>/AjaxHistoryOfPendingServlet</url-pattern>
     <url-pattern>/print</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxHistoryOfResolvedServlet</display-name>
+    <servlet-name>AjaxHistoryOfResolvedServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxHistoryOfResolvedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxHistoryOfResolvedServlet</servlet-name>
+    <url-pattern>/AjaxHistoryOfResolvedServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

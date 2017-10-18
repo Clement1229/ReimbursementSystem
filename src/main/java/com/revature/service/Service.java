@@ -6,6 +6,7 @@ import com.revature.dao.Dao;
 import com.revature.dao.DaoImpl;
 import com.revature.domain.PendingHistory;
 import com.revature.domain.Reimbursement;
+import com.revature.domain.ResolvedHistory;
 import com.revature.domain.User;
 
 public class Service {
@@ -32,6 +33,9 @@ public class Service {
 	}
 	public List<PendingHistory> viewPendingHistory(int ersid){
 		return dao.viewPendingHistory(ersid);
+	}
+	public List<ResolvedHistory> viewResolvedHistory(int ersid) {
+		return dao.viewResolvedHistory(ersid);
 	}
 	
 }

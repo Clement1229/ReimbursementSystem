@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.revature.domain.PendingHistory;
 import com.revature.domain.Reimbursement;
+import com.revature.domain.ResolvedHistory;
 import com.revature.domain.User;
 import com.revature.util.ConnectionUtil;
 
@@ -42,9 +43,6 @@ public class DaoImpl implements Dao {
 		return rtid;
 	}
 
-	
-	
-
 	@Override
 	public User getUserByUsernamePassword(String username, String password) {
 		User user = null;
@@ -57,9 +55,10 @@ public class DaoImpl implements Dao {
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				user = new User(rs.getInt("ERS_ID"), rs.getString("ERS_FN"), rs.getString("ERS_LN"), rs.getString("ERS_USERNAME"),
-						rs.getString("ERS_PASSWORD"), rs.getString("ERS_EMAIL"), rs.getInt("ERS_RT_ID"));
-				
+				user = new User(rs.getInt("ERS_ID"), rs.getString("ERS_FN"), rs.getString("ERS_LN"),
+						rs.getString("ERS_USERNAME"), rs.getString("ERS_PASSWORD"), rs.getString("ERS_EMAIL"),
+						rs.getInt("ERS_RT_ID"));
+
 			}
 
 		} catch (SQLException e) {
@@ -67,9 +66,9 @@ public class DaoImpl implements Dao {
 		}
 		return user;
 	}
-	
-	//new
-	public void submitReimbursement(User user,Reimbursement reim) {
+
+	// new
+	public void submitReimbursement(User user, Reimbursement reim) {
 		try (Connection conn = ConnectionUtil.getConnection();) {
 
 			CallableStatement cs = conn.prepareCall("{call submit_reimbursement(?,?,?,?)}");
@@ -82,26 +81,47 @@ public class DaoImpl implements Dao {
 			e.printStackTrace();
 		}
 	}
-	
-public List<PendingHistory> viewPendingHistory(int ersid) {
-		
+
+	public List<PendingHistory> viewPendingHistory(int ersid) {
+
 		List<PendingHistory> reims = new ArrayList<>();
-		
+
 		try (Connection conn = ConnectionUtil.getConnection();) {
-			//TYPE AMOUNT STATUS TIME
-			String sql = "select (select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp from REIMBURSEMENT where ERS_ID = ?";
+			// TYPE AMOUNT STATUS TIME
+			String sql = "select (select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp from REIMBURSEMENT where ST_ID=1 and ERS_ID = ?";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, ersid);
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				reims.add(new PendingHistory(rs.getString(1), rs.getDouble(2), rs.getString(3),rs.getString(4)));
+			while (rs.next()) {
+				reims.add(new PendingHistory(rs.getString(1), rs.getDouble(2), rs.getString(3), rs.getString(4)));
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return reims;
-		
+
+	}
+
+	@Override
+	public List<ResolvedHistory> viewResolvedHistory(int ersid) {
+		List<ResolvedHistory> rh = new ArrayList<>();
+
+		try (Connection conn = ConnectionUtil.getConnection();) {
+			// TYPE AMOUNT STATUS TIME
+			String sql = "select (select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount,(select st_name from status_type where reimbursement.st_id = status_type.st_id),(select ers_fn from ers_user where ers_user.ers_id = reimbursement.manager_id),r_timestamp from REIMBURSEMENT where ST_ID != 1 and ERS_ID = ?"; 
+					
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, ersid);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				rh.add(new ResolvedHistory(rs.getString(1), rs.getDouble(2), rs.getString(3), rs.getString(4),rs.getString(5)));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rh;
 	}
 }
