@@ -47,6 +47,22 @@ public class AjaxHistoryOfResolvedServlet extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<table border=\"6\">");
+		
+		out.println("<tr>");
+		
+		out.println("<th>");
+		out.println("Type");
+		out.println("</th>");
+		out.println("<th>");
+		out.println("Amount");
+		out.println("</th>");
+		out.println("<th>");
+		out.println("Status");
+		out.println("</th>");
+		out.println("<th>");
+		out.println("Time");
+		out.println("</th>");
+		
 		out.println("<tr>");
 		 for (int i = 0; i < ls.size(); i++) {
 		        //if (i>0 && i%5==0) {

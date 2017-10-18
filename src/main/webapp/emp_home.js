@@ -2,7 +2,7 @@
  * 
  */
 window.onload = function(){
-	console.log('emp_home Dom Ready');
+	//console.log('emp_home Dom Ready');
 	loadNavbar();
 }
 
@@ -37,6 +37,8 @@ function loadNavbar(){
 	
 }
 
+
+//*************************************************************
 function loadEmployeeHomeView(){
 	console.log('Loading EmployeeHomeView!!');
  	

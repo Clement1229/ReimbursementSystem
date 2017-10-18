@@ -93,4 +93,14 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxNavbarManagerServlet</display-name>
+    <servlet-name>AjaxNavbarManagerServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxNavbarManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxNavbarManagerServlet</servlet-name>
+    <url-pattern>/AjaxNavbarManagerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

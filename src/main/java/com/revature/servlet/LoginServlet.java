@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 		//System.out.println(service.getUserByUsernamePassword(username, password));
 		//System.out.println("role type: " + rtid);
 		if (user.getRtId() == 1) // If user is a manager
-			request.getRequestDispatcher("manager/mng_home.html").forward(request, response);  // path will be changed later
+			request.getRequestDispatcher("mng_home.html").forward(request, response);  // path will be changed later
 		else if (user.getRtId() == 2) //If user is an employee
 			request.getRequestDispatcher("emp_home.html").forward(request, response);
 		else
