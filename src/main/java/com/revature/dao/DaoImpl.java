@@ -5,9 +5,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.revature.domain.PendingHistory;
 import com.revature.domain.Reimbursement;
-import com.revature.domain.ReimbursementType;
 import com.revature.domain.User;
 import com.revature.util.ConnectionUtil;
 
@@ -79,6 +81,28 @@ public class DaoImpl implements Dao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+public List<PendingHistory> viewTransactionHistory(Reimbursement reim) {
+		
+		List<PendingHistory> reims = new ArrayList<>();
+		
+		try (Connection conn = ConnectionUtil.getConnection();) {
+			//TYPE AMOUNT STATUS TIME
+			String sql = "select (select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp from REIMBURSEMENT where ERS_ID = ?";
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, reim.getErsID());
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				reims.add(new PendingHistory(rs.getString(1), rs.getDouble(2), rs.getString(3),rs.getString(4)));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reims;
+		
 	}
 
 }

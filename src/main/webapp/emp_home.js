@@ -135,7 +135,7 @@ function loadHistoryOfPendingView(){
 	
 }
 
-/*
+//have not implemented yet  !!!!!!!!!!!!!!!!!!!!!!!!!
 function getHistoryOfPending(){
 	//Use AJAX to grab the JSON object from server that holds bank user data
 	var xhr = new XMLHttpRequest();
@@ -150,8 +150,8 @@ function getHistoryOfPending(){
 		}
 	}
 	// open the request  ?? where does get go
-	xhr.open("GET", "ajaxGetErsUserInfo", true); //method, URL, true =>synchronous
+	//xhr.open("GET", "ajaxGetErsUserInfo", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	
-}*/
+}
