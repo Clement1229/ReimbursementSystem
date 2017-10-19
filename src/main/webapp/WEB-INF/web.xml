@@ -113,4 +113,14 @@
     <servlet-name>AjaxManagerViewEmployeeServlet</servlet-name>
     <url-pattern>/AjaxManagerViewEmployeeServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxManagerResolvedViewServlet</display-name>
+    <servlet-name>AjaxManagerResolvedViewServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxManagerResolvedViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxManagerResolvedViewServlet</servlet-name>
+    <url-pattern>/AjaxManagerResolvedViewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

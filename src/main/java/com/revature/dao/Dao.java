@@ -18,5 +18,6 @@ public interface Dao {
 	public List<PendingHistory> viewPendingHistory(int ersid);
 	public List<ResolvedHistory> viewResolvedHistory(int ersid);
 	public List<Employee> viewEmployeeList();
+	public List<ResolvedHistory> viewAllResolvedHistory();
 	
 }

@@ -41,5 +41,8 @@ public class Service {
 	public List<Employee> viewEmployeeList(){
 		return dao.viewEmployeeList();
 	}
+	public List<ResolvedHistory> viewAllResolvedHistory(){
+		return dao.viewAllResolvedHistory();
+	}
 	
 }

@@ -1,23 +1,40 @@
 package com.revature.domain;
 
 public class ResolvedHistory {
+
+	private String empf;
+	private String empl;
 	private String type;
 	private double amount;
 	private String status;
-	private String manager;
+	//private String manager;
 	private String timestamp;
 	
+	private String mngf;
+	private String mngl;
+
 	
 	
 	
-	public ResolvedHistory(String type, double amount, String status, String manager, String timestamp) {
+	public ResolvedHistory(String empf, String empl, String type, double amount, String status, String timestamp, String mngf, String mngl) {
 		super();
+		this.empf = empf;
+		this.empl = empl;
 		this.type = type;
 		this.amount = amount;
 		this.status = status;
-		this.manager = manager;
 		this.timestamp = timestamp;
+		this.mngf = mngf;
+		this.mngl = mngl;
 	}
+//	public ResolvedHistory(String type, double amount, String status, String manager, String timestamp) {
+//		super();
+//		this.type = type;
+//		this.amount = amount;
+//		this.status = status;
+//		this.manager = manager;
+//		this.timestamp = timestamp;
+//	}
 	public String getType() {
 		return type;
 	}
@@ -36,23 +53,37 @@ public class ResolvedHistory {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getManager() {
-		return manager;
-	}
-	public void setManager(String manager) {
-		this.manager = manager;
-	}
+//	public String getManager() {
+//		return manager;
+//	}
+//	public void setManager(String manager) {
+//		this.manager = manager;
+//	}
 	public String getTimestamp() {
 		return timestamp;
 	}
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
+	
+	public String getMngf() {
+		return mngf;
+	}
+	public void setMngf(String mngf) {
+		this.mngf = mngf;
+	}
+	public String getMngl() {
+		return mngl;
+	}
+	public void setMngl(String mngl) {
+		this.mngl = mngl;
+	}
 	@Override
 	public String toString() {
-		return "Type: " + type + "\n amount: " + amount + "\n status: " + status + "\n manager: " + manager
-				+ "\n timestamp: " + timestamp;
+		return " [Employee: " + empf + empl + ", type=" + type + ", amount=" + amount
+				+ ", status=" + status + ", timestamp=" + timestamp + ", Manager: " + mngf + mngl + "]";
 	}
+	
 	
 	
 }

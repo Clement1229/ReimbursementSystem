@@ -25,7 +25,7 @@ function loadNavbar(){
 			document.getElementById('viewEmployee').addEventListener("click",loadEmployeeListView, false);
 //			document.getElementById('pending').addEventListener("click",loadHistoryOfPendingView, false);
 //			document.getElementById('profile').addEventListener("click",loadProfileView, false);
-//			document.getElementById('resolved').addEventListener("click",loadHistoryOfResolvedView, false);
+			document.getElementById('resolved').addEventListener("click",loadManagerResolvedView, false);
 			//document.getElementById('logout').addEventListener("click",doLogOut, false);
 		}
 	}
@@ -47,11 +47,30 @@ function loadEmployeeListView(){
 		console.log('received loadEmployeeListView fragment');
 		if(xhr.readyState == 4 && xhr.status == 200){
 			document.getElementById("view").innerHTML = xhr.responseText;
-			getUserInfo();
+			//getUserInfo();
 		}
 	}
 	// open the request  ?? where does get go
 	xhr.open("GET", "ajaxEmployeeListView", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+	
+}
+//************************************************** Manager view Resolved requests
+function loadManagerResolvedView(){
+	console.log('Loading loadManagerResolvedView!!');
+ 	
+	//Use AJAX to grab the navbar.html fragment
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		console.log('received manager resolved fragment');
+		if(xhr.readyState == 4 && xhr.status == 200){
+			document.getElementById("view").innerHTML = xhr.responseText;
+			//getHistoryOfPending();
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxManagerResolvedView", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	
