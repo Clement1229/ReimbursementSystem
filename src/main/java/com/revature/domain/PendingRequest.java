@@ -99,8 +99,8 @@ public class PendingRequest {
 
 	@Override
 	public String toString() {
-		return "PendingRequest [rid=" + rid + ", ersin=" + ersin + ", fn=" + fn + ", ls=" + ls + ", type=" + type
-				+ ", amount=" + amount + ", text=" + text + ", status=" + status + ", time=" + time + "]";
+		return "rid: " + rid + "\t ersid: " + ersin +"\t" +fn +"\t"+ ls  + "\t"+type
+				+ "\t" + amount + "\t" + text + "\t" + status + "\t" + time;
 	}
 	
 	

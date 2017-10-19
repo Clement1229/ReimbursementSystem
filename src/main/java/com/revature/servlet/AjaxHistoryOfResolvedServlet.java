@@ -41,6 +41,7 @@ public class AjaxHistoryOfResolvedServlet extends HttpServlet {
 		List<ResolvedHistory> ls = service.viewResolvedHistory(employee.getErsId());
 		PrintWriter out = response.getWriter();
 		//System.out.println(ls);
+		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Counter</title>");

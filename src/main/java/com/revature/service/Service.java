@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import com.revature.dao.Dao;
@@ -48,5 +49,8 @@ public class Service {
 	public List<PendingRequest> viewPendingRequest() {
 		return dao.viewPendingRequest();
 	}
+//	public ResultSet viewPendingRequest() {
+//		return dao.viewPendingRequest();
+//	}
 	
 }

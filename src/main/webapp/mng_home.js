@@ -24,7 +24,7 @@ function loadNavbar(){
 			//document.getElementById('tx').addEventListener("click",loadTxView, false);
 			document.getElementById('viewEmployee').addEventListener("click",loadEmployeeListView, false);
 			document.getElementById('pending').addEventListener("click",loadPendingRequestView, false);
-//			document.getElementById('profile').addEventListener("click",loadProfileView, false);
+//			document.getElementById('submitersId').addEventListener("click",loadSingleEmployeeView, false);
 			document.getElementById('resolved').addEventListener("click",loadManagerResolvedView, false);
 			//document.getElementById('logout').addEventListener("click",doLogOut, false);
 		}
@@ -94,3 +94,22 @@ function loadPendingRequestView(){
 	xhr.send();
 	
 }
+//*********************************view single Employee
+
+/*function loadSingleEmployeeView(){
+	console.log('Loading loadSingleEmployeeView!!');
+ 	
+	//Use AJAX to grab the navbar.html fragment
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		console.log('received loadSingleEmployeeView fragment');
+		if(xhr.readyState == 4 && xhr.status == 200){
+			document.getElementById("view").innerHTML = xhr.responseText;
+			//getHistoryOfPending();
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxSingleEmployeeView", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+}*/

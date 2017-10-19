@@ -133,4 +133,15 @@
     <servlet-name>AjaxManagerPendingViewServlet</servlet-name>
     <url-pattern>/AjaxManagerPendingViewServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxViewSingleEmployeeServlet</display-name>
+    <servlet-name>AjaxViewSingleEmployeeServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxViewSingleEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxViewSingleEmployeeServlet</servlet-name>
+    <url-pattern>/AjaxViewSingleEmployeeServlet</url-pattern>
+    <url-pattern>/getSingleEmp</url-pattern>
+  </servlet-mapping>
 </web-app>

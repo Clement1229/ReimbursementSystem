@@ -2,6 +2,8 @@ package com.revature.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -35,8 +37,10 @@ public class AjaxManagerPendingViewServlet extends HttpServlet {
 		System.out.println("Loading AjaxManagerPendingViewServlet  -GET");
 		Service service = new Service();
 		List<PendingRequest> pr = service.viewPendingRequest();
+//		ResultSet rs = service.viewPendingRequest();
 		PrintWriter out = response.getWriter();
-		
+		out.print("<input name= \"test01\" type = \"submit\" />");
+		out.println("</br>");
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Counter</title>");

@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import com.revature.domain.Employee;
@@ -21,4 +22,5 @@ public interface Dao {
 	public List<Employee> viewEmployeeList();
 	public List<ResolvedHistory> viewAllResolvedHistory();
 	public List<PendingRequest> viewPendingRequest() ;
+	//public ResultSet viewPendingRequest() ;
 }
