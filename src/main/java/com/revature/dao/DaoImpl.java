@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.revature.domain.Employee;
 import com.revature.domain.PendingHistory;
+import com.revature.domain.PendingRequest;
 import com.revature.domain.Reimbursement;
 import com.revature.domain.ResolvedHistory;
 import com.revature.domain.User;
@@ -82,7 +83,7 @@ public class DaoImpl implements Dao {
 			e.printStackTrace();
 		}
 	}
-
+	//for employee
 	public List<PendingHistory> viewPendingHistory(int ersid) {
 
 		List<PendingHistory> reims = new ArrayList<>();
@@ -104,7 +105,7 @@ public class DaoImpl implements Dao {
 		return reims;
 
 	}
-
+	//for employee
 	@Override
 	public List<ResolvedHistory> viewResolvedHistory(int ersid) {
 		List<ResolvedHistory> rh = new ArrayList<>();
@@ -164,6 +165,28 @@ public class DaoImpl implements Dao {
 		}
 		return mrh;
 	
+	}
+	//for manager
+	public List<PendingRequest> viewPendingRequest() {
+
+		List<PendingRequest> pr = new ArrayList<>();
+
+		try (Connection conn = ConnectionUtil.getConnection();) {
+			// TYPE AMOUNT STATUS TIME
+			String sql = "select r_id, ers_id, (select ers_fn from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select ers_ln from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, r_description, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp from reimbursement where st_id = 1";
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+			//ps.setInt(1, ersid);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				pr.add(new PendingRequest(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4),rs.getString(5),rs.getDouble(6),rs.getString(7),rs.getString(8),rs.getString(9)));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pr;
+
 	}
 }
 

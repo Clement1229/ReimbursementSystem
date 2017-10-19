@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.revature.domain.Employee;
 import com.revature.domain.PendingHistory;
+import com.revature.domain.PendingRequest;
 import com.revature.domain.Reimbursement;
 import com.revature.domain.ReimbursementType;
 import com.revature.domain.ResolvedHistory;
@@ -19,5 +20,5 @@ public interface Dao {
 	public List<ResolvedHistory> viewResolvedHistory(int ersid);
 	public List<Employee> viewEmployeeList();
 	public List<ResolvedHistory> viewAllResolvedHistory();
-	
+	public List<PendingRequest> viewPendingRequest() ;
 }

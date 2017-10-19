@@ -23,7 +23,7 @@ function loadNavbar(){
 			//document.getElementById('revatureHome').addEventListener("click", loadRevatureHomeView, false);
 			//document.getElementById('tx').addEventListener("click",loadTxView, false);
 			document.getElementById('viewEmployee').addEventListener("click",loadEmployeeListView, false);
-//			document.getElementById('pending').addEventListener("click",loadHistoryOfPendingView, false);
+			document.getElementById('pending').addEventListener("click",loadPendingRequestView, false);
 //			document.getElementById('profile').addEventListener("click",loadProfileView, false);
 			document.getElementById('resolved').addEventListener("click",loadManagerResolvedView, false);
 			//document.getElementById('logout').addEventListener("click",doLogOut, false);
@@ -71,6 +71,25 @@ function loadManagerResolvedView(){
 	}
 	// open the request  ?? where does get go
 	xhr.open("GET", "ajaxManagerResolvedView", true); //method, URL, true =>synchronous
+	//sent it
+	xhr.send();
+	
+}
+//*************************************************Manager view Pending requests
+function loadPendingRequestView(){
+	console.log('Loading loadPendingRequestView!!');
+ 	
+	//Use AJAX to grab the navbar.html fragment
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		console.log('received pending request fragment');
+		if(xhr.readyState == 4 && xhr.status == 200){
+			document.getElementById("view").innerHTML = xhr.responseText;
+			//getHistoryOfPending();
+		}
+	}
+	// open the request  ?? where does get go
+	xhr.open("GET", "ajaxPendingRequestView", true); //method, URL, true =>synchronous
 	//sent it
 	xhr.send();
 	

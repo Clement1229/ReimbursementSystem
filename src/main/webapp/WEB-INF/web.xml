@@ -123,4 +123,14 @@
     <servlet-name>AjaxManagerResolvedViewServlet</servlet-name>
     <url-pattern>/AjaxManagerResolvedViewServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AjaxManagerPendingViewServlet</display-name>
+    <servlet-name>AjaxManagerPendingViewServlet</servlet-name>
+    <servlet-class>com.revature.servlet.AjaxManagerPendingViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjaxManagerPendingViewServlet</servlet-name>
+    <url-pattern>/AjaxManagerPendingViewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
