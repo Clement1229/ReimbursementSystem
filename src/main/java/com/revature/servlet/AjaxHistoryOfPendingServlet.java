@@ -43,7 +43,7 @@ public class AjaxHistoryOfPendingServlet extends HttpServlet {
 		User employee = (User) session.getAttribute("user");
 		List<PendingHistory> ls = service.viewPendingHistory(employee.getErsId());
 		PrintWriter out = response.getWriter();
-		System.out.println(ls);
+		//System.out.println(ls);
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Counter</title>");

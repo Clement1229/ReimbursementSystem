@@ -15,6 +15,17 @@ public class Employee {
 	String password;
 	String email;
 	int rtId;
+	
+	
+	
+	public Employee(int ersId, String firstName, String lastName, String username, String email) {
+		super();
+		this.ersId = ersId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.email = email;
+	}
 	public int getErsId() {
 		return ersId;
 	}

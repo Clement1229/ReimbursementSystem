@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.domain.Employee;
 import com.revature.domain.PendingHistory;
 import com.revature.domain.Reimbursement;
 import com.revature.domain.ResolvedHistory;
@@ -124,4 +125,24 @@ public class DaoImpl implements Dao {
 		}
 		return rh;
 	}
+	
+	public List<Employee> viewEmployeeList(){
+		List<Employee> empls = new ArrayList<>();
+
+		try (Connection conn = ConnectionUtil.getConnection();) {
+			// TYPE AMOUNT STATUS TIME
+			String sql = "select ers_id, ers_fn, ers_ln, ers_username, ers_email from ers_user where ers_rt_id = 1"; 
+					
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				empls.add(new Employee(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return empls;
+	}
 }
+
