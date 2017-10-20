@@ -52,5 +52,14 @@ public class Service {
 	public void updateFirstNamePasswordEmail(String fn, String pw, String em, int rtid) {
 		dao.updateFirstNamePasswordEmail(fn, pw, em, rtid);
 	}
+	public List<PendingRequest> viewSingleEmployeePendingRequest(int ersid) {
+		return dao.viewSingleEmployeePendingRequest(ersid);
+	}
+	public void approveRequestByRid(int mngId, int rid) {
+		dao.approveRequestByRid(mngId, rid);
+	}
+	public void denyRequestByRid(int mngId, int rid) {
+		dao.denyRequestByRid(mngId, rid);
+	}
 	
 }

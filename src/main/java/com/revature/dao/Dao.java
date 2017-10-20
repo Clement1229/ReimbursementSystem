@@ -24,4 +24,7 @@ public interface Dao {
 	public List<PendingRequest> viewPendingRequest() ;
 	//public ResultSet viewPendingRequest() ;
 	public void updateFirstNamePasswordEmail(String fn, String pw, String em, int rtid) ;
+	public List<PendingRequest> viewSingleEmployeePendingRequest(int ersid);
+	public void approveRequestByRid(int mngId, int rid);
+	public void denyRequestByRid(int mngId, int rid);
 }

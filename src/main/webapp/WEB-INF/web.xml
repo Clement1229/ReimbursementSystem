@@ -155,4 +155,26 @@
     <url-pattern>/UpdateInfoServlet</url-pattern>
     <url-pattern>/updateInfo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ApprovalServlet</display-name>
+    <servlet-name>ApprovalServlet</servlet-name>
+    <servlet-class>com.revature.servlet.ApprovalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ApprovalServlet</servlet-name>
+    <url-pattern>/ApprovalServlet</url-pattern>
+    <url-pattern>/approve</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DenialServlet</display-name>
+    <servlet-name>DenialServlet</servlet-name>
+    <servlet-class>com.revature.servlet.DenialServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DenialServlet</servlet-name>
+    <url-pattern>/DenialServlet</url-pattern>
+    <url-pattern>/deny</url-pattern>
+  </servlet-mapping>
 </web-app>

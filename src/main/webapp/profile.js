@@ -1,6 +1,6 @@
 /**
  * 
- */
+ *//*
 function loadEmployeeListView(){
 	console.log('Loading loadEmployeeListView!!');
  	
@@ -18,4 +18,4 @@ function loadEmployeeListView(){
 	//sent it
 	xhr.send();
 	
-}
+}*/
