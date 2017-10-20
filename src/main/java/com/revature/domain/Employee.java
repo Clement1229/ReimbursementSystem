@@ -70,8 +70,8 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [ersId=" + ersId + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
-				+ username + ", password=" + password + ", email=" + email + ", rtId=" + rtId + "]";
+		return "ID" + ersId + "  ==" + firstName + " " + lastName +"==  " + " Username: "
+				+ username + " Password: " + password + " Email: " + email;
 	}
 	
 	

@@ -3,12 +3,14 @@ package com.revature.domain;
 public class PendingHistory {
 	private String type;
     private double amount;
+    private String description;
     private String status;
     private String timestamp;
-	public PendingHistory(String type, double amount, String status, String timestamp) {
+	public PendingHistory(String type, double amount, String description, String status, String timestamp) {
 		super();
 		this.type = type;
 		this.amount = amount;
+		this.description = description;
 		this.status = status;
 		this.timestamp = timestamp;
 	}
@@ -36,9 +38,16 @@ public class PendingHistory {
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	@Override
 	public String toString() {
-		return "Type: " + type + "\n amount: " + amount + "\n status: " + status + "\n timestamp: " + timestamp;
+		return "Type: " + type + "\t amount: " + amount + "\t ||" + description+ "||\t status: " + status + "\t timestamp: " + timestamp;
 	}
     
     

@@ -93,13 +93,13 @@ public class DaoImpl implements Dao {
 
 		try (Connection conn = ConnectionUtil.getConnection();) {
 			// TYPE AMOUNT STATUS TIME
-			String sql = "select (select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp from REIMBURSEMENT where ST_ID=1 and ERS_ID = ?";
+			String sql = "select (select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, R_DESCRIPTION,(select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp from REIMBURSEMENT where ST_ID=1 and ERS_ID = ?";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, ersid);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				reims.add(new PendingHistory(rs.getString(1), rs.getDouble(2), rs.getString(3), rs.getString(4)));
+				reims.add(new PendingHistory(rs.getString(1), rs.getDouble(2),rs.getString(3), rs.getString(4), rs.getString(5)));
 			}
 
 		} catch (SQLException e) {
@@ -122,8 +122,8 @@ public class DaoImpl implements Dao {
 			ps.setInt(1, ersid);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				rh.add(new ResolvedHistory(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
-						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
+				rh.add(new ResolvedHistory(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
 			}
 
 		} catch (SQLException e) {
@@ -158,13 +158,13 @@ public class DaoImpl implements Dao {
 
 		try (Connection conn = ConnectionUtil.getConnection();) {
 			// TYPE AMOUNT STATUS TIME
-			String sql = "select (select ers_fn from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select ers_ln from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp ,(select ers_fn from ers_user where ers_user.ers_id = reimbursement.manager_id and ers_rt_id = 2),(select ers_ln from ers_user where ers_user.ers_id = reimbursement.manager_id and ers_rt_id = 2) from reimbursement where st_id != 1";
+			String sql = "select (select ers_fn from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select ers_ln from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, r_description, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp ,(select ers_fn from ers_user where ers_user.ers_id = reimbursement.manager_id and ers_rt_id = 2),(select ers_ln from ers_user where ers_user.ers_id = reimbursement.manager_id and ers_rt_id = 2) from reimbursement where st_id != 1";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				mrh.add(new ResolvedHistory(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
-						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
+				mrh.add(new ResolvedHistory(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4),rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
 			}
 
 		} catch (SQLException e) {

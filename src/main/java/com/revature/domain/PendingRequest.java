@@ -100,7 +100,7 @@ public class PendingRequest {
 	@Override
 	public String toString() {
 		return "rid: " + rid + "\t ersid: " + ersin +"\t" +fn +"\t"+ ls  + "\t"+type
-				+ "\t" + amount + "\t" + text + "\t" + status + "\t" + time;
+				+ "\t" + amount + "\t ||" + text + "||  \t" + status + "\t" + time;
 	}
 	
 	

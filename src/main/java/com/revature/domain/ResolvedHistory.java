@@ -6,6 +6,7 @@ public class ResolvedHistory {
 	private String empl;
 	private String type;
 	private double amount;
+	private String decp;
 	private String status;
 	//private String manager;
 	private String timestamp;
@@ -16,12 +17,13 @@ public class ResolvedHistory {
 	
 	
 	
-	public ResolvedHistory(String empf, String empl, String type, double amount, String status, String timestamp, String mngf, String mngl) {
+	public ResolvedHistory(String empf, String empl, String type, double amount,String decp, String status, String timestamp, String mngf, String mngl) {
 		super();
 		this.empf = empf;
 		this.empl = empl;
 		this.type = type;
 		this.amount = amount;
+		this.decp = decp;
 		this.status = status;
 		this.timestamp = timestamp;
 		this.mngf = mngf;
@@ -80,8 +82,8 @@ public class ResolvedHistory {
 	}
 	@Override
 	public String toString() {
-		return " [Employee: " + empf + empl + ", type=" + type + ", amount=" + amount
-				+ ", status=" + status + ", timestamp=" + timestamp + ", Manager: " + mngf + mngl + "]";
+		return   empf +" "+ empl + "=> Type: " + type + "\t-- Amount: $" + amount +" || " + decp + " || " 
+				+ "\t ==" + status + "== " +  " Solved By Manager: " + mngf +" "+ mngl ;
 	}
 	
 	
