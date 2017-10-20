@@ -42,6 +42,23 @@ public class AjaxHistoryOfResolvedServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		//System.out.println(ls);
 		
+		out.print("<style>");
+		out.print("table {");
+		out.print(" font-family: arial, sans-serif;");
+		out.print("border-collapse: collapse;");
+		out.print("width: 100%;");
+		out.print("	}");
+		out.print("td, th {");
+		out.print("border: 1px solid #dddddd;");
+		out.print("text-align: left;");
+		out.print("padding: 8px;");
+		out.print("}");
+		out.print("tr:nth-child(even) {");
+		out.print("background-color: #dddddd;");
+		out.print("}");
+		out.print("</style>");
+		
+		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Counter</title>");
