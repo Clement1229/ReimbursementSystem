@@ -55,6 +55,17 @@ public class AjaxManagerPendingViewServlet extends HttpServlet {
 		out.print("}");
 		out.print("</style>");
 		
+		out.print("<form method=\"POST\" action=\"approve\">");
+		out.println("<input type=\"text\" name=\"rid\" placeholder=\"input rid\"/>");
+		out.println("<input type = \"submit\" value=\"APPROVE\" />");
+		out.println("</form>");
+		
+		out.print("<form method=\"POST\" action=\"deny\">");
+		out.println("<input type=\"text\" name=\"drid\" placeholder=\"input rid\"/>");
+		out.println("<input type = \"submit\" value=\"DENY\" />");
+		out.println("</form>");
+		
+		
 		
 		
 	//	out.print("<input name= \"test01\" type = \"submit\" />");

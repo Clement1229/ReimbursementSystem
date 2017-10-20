@@ -116,7 +116,7 @@ public class DaoImpl implements Dao {
 
 		try (Connection conn = ConnectionUtil.getConnection();) {
 			// TYPE AMOUNT STATUS TIME
-			String sql = "select (select ers_fn from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select ers_ln from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount,(select st_name from status_type where reimbursement.st_id = status_type.st_id),(select ers_fn from ers_user where ers_user.ers_id = reimbursement.manager_id),(select ers_ln from ers_user where ers_user.ers_id = reimbursement.manager_id),r_timestamp from REIMBURSEMENT where ST_ID != 1 and ERS_ID = ?";
+			String sql = "select (select ers_fn from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select ers_ln from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, r_description, (select st_name from status_type where reimbursement.st_id = status_type.st_id),(select ers_fn from ers_user where ers_user.ers_id = reimbursement.manager_id),(select ers_ln from ers_user where ers_user.ers_id = reimbursement.manager_id),r_timestamp from REIMBURSEMENT where ST_ID != 1 and ERS_ID = ?";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, ersid);
