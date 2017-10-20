@@ -23,7 +23,7 @@ public class AjaxEmployeeProfileViewServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Loading ProfileView");
+		System.out.println("Loading ProfileViewServlet -GET");
 		request.getRequestDispatcher("employee/profile.html").forward(request, response);
 	}
 

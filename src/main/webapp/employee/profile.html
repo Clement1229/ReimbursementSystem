@@ -2,17 +2,66 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/profile.css"/>
 <title>Profile</title>
+
+<script type="text/javascript" src="profile.js"></script>
 </head>
 <body>
-<h2>Profile</h2>
 
-<div>
-<h2>Hi, <span id="empFirstName"></span>! </h2><br>
-<h2>Username: <span id="empUserName"></span></h2><br>
-<h2>Password: <span id="empPassword"></span></h2><br>
-<h2>Email: <span id="empEmail"></h2></span><br>
+<!-- <form method="POST" action="updateInfo"> -->
+<!-- <h3>First Name: <span id="empFirstName"></span></h3><input type="text" name="editFirstName" placeholder="Edit First Name" style="width: 260px; "/><br> -->
+<!-- <h3>Last Name: <span id="empLastName"></span></h3><br>
+<h3>Username: <span id="empUserName"></span></h3><br>
+<h3>Password: <span id="empPassword"></span></h3><input type="text" name="editPassword" placeholder="New Password" style="width: 260px; "/><br>
+<h3>Email: <span id="empEmail"></span></h3><input type="text" name="editEmail" placeholder="New Email Address" style="width: 260px; "/><br>
+<input type = "submit" /> -->
+<!-- </form> -->
+
+
+
+<div class="container">
+  <form action="updateInfo" method="POST">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label> <span id="empFirstName"></span>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="editFirstName" placeholder="Edit first name.." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label><span id="empLastName"></span>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="uname">Username</label><span id="empUserName"></span>
+      </div>
+    </div>
+   <div class="row">
+      <div class="col-25">
+        <label for="pword">PassWord</label><span id="empPassword"></span>
+      </div>
+      <div class="col-75">
+        <input type="text" id="pword" name="editPassword" placeholder="New password.." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="email">Email</label><span id="empEmail"></span>
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" name="editEmail" placeholder="New email.." required>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
 </div>
+
 
 </body>
 </html>

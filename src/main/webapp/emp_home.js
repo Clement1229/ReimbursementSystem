@@ -87,6 +87,7 @@ function getUserInfo(){
 			//bankUser = xhr.responseText;
 			ersUser = JSON.parse(xhr.responseText); //BankUserDTO parsed into JS
 			document.getElementById("empFirstName").innerHTML = ersUser.firstName;   //profile.html
+			document.getElementById("empLastName").innerHTML = ersUser.lastName;
 			document.getElementById("empUserName").innerHTML = ersUser.username;
 			document.getElementById("empPassword").innerHTML = ersUser.password;
 			document.getElementById("empEmail").innerHTML = ersUser.email;

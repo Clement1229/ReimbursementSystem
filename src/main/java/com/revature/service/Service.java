@@ -49,8 +49,8 @@ public class Service {
 	public List<PendingRequest> viewPendingRequest() {
 		return dao.viewPendingRequest();
 	}
-//	public ResultSet viewPendingRequest() {
-//		return dao.viewPendingRequest();
-//	}
+	public void updateFirstNamePasswordEmail(String fn, String pw, String em, int rtid) {
+		dao.updateFirstNamePasswordEmail(fn, pw, em, rtid);
+	}
 	
 }

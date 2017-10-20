@@ -23,4 +23,5 @@ public interface Dao {
 	public List<ResolvedHistory> viewAllResolvedHistory();
 	public List<PendingRequest> viewPendingRequest() ;
 	//public ResultSet viewPendingRequest() ;
+	public void updateFirstNamePasswordEmail(String fn, String pw, String em, int rtid) ;
 }

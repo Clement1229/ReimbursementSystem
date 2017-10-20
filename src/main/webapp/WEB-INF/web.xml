@@ -144,4 +144,15 @@
     <url-pattern>/AjaxViewSingleEmployeeServlet</url-pattern>
     <url-pattern>/getSingleEmp</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateInfoServlet</display-name>
+    <servlet-name>UpdateInfoServlet</servlet-name>
+    <servlet-class>com.revature.servlet.UpdateInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateInfoServlet</servlet-name>
+    <url-pattern>/UpdateInfoServlet</url-pattern>
+    <url-pattern>/updateInfo</url-pattern>
+  </servlet-mapping>
 </web-app>

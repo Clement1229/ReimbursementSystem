@@ -178,7 +178,7 @@ public class DaoImpl implements Dao {
 	public List<PendingRequest> viewPendingRequest() {
 
 		List<PendingRequest> pr = new ArrayList<>();
-		//ResultSet rs = null;
+		// ResultSet rs = null;
 		try (Connection conn = ConnectionUtil.getConnection();) {
 			// TYPE AMOUNT STATUS TIME
 			String sql = "select r_id, ers_id, (select ers_fn from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select ers_ln from ERS_USER where ers_user.ers_id = reimbursement.ers_id ),(select rbt_name from reimbursement_type where reimbursement.rbt_id = reimbursement_type.rbt_id), r_amount, r_description, (select st_name from status_type where reimbursement.st_id = status_type.st_id), r_timestamp from reimbursement where st_id = 1";
@@ -195,4 +195,31 @@ public class DaoImpl implements Dao {
 		return pr;
 	}
 
+	public void updateFirstNamePasswordEmail(String fn, String pw, String em, int rtid) {
+	
+		try (Connection conn = ConnectionUtil.getConnection();) {
+			System.out.println("+++updateFirstNamePasswordEmail++++++");
+			System.out.println(fn +" "+ pw + " " + em + " " + rtid);
+			String sql = "update ers_user set ers_fn= ?, ers_password = ?, ers_email= ? where ers_id= ?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, fn);
+			ps.setString(2, pw);
+			ps.setString(3, em);
+			ps.setInt(4, rtid);
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }
+
+
+
+
+
+
+

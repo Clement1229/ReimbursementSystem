@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("LoginServlet -GET");
-		request.getRequestDispatcher("login.html").forward(request, response);
+		//request.getRequestDispatcher("login.html").forward(request, response);
 
 	}
 
